@@ -29,33 +29,31 @@ textInputElement.oninput = function(event) {
   buildTableBodyByCountsCoincidences(countsCoincidences);
 };
 
+function addRowToElementByArray(element, array) {
+  const row = element.insertRow();
+
+  for (let item of array) {
+    const cell = row.insertCell();
+
+    cell.innerText = item;
+  }
+
+  countsTableElement.append(element);
+}
+
 function buildTableBodyByCountsCoincidences(countsCoincidences) {
   const oldTbody = countsTableElement.childNodes[1];
   const tbody = document.createElement("tbody");
-  const row = tbody.insertRow();
 
   if (oldTbody) oldTbody.remove();
 
-  for (let countsCoincidence of countsCoincidences) {
-    const cell = row.insertCell();
-
-    cell.innerText = countsCoincidence;
-  }
-
-  countsTableElement.append(tbody);
+  addRowToElementByArray(tbody, countsCoincidences);
 }
 
 function buildTableHeadBySearchKeys() {
   const thead = document.createElement("thead");
-  const row = thead.insertRow();
 
-  for (const searchKey of searchKeys) {
-    const cell = row.insertCell();
-
-    cell.innerText = searchKey;
-  }
-
-  countsTableElement.append(thead);
+  addRowToElementByArray(thead, searchKeys);
 }
 
 function getCountsCoincidencesOfText(text) {
