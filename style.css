@@ -1,0 +1,17 @@
+table {
+  margin: 16px auto;
+  border-collapse: collapse;
+}
+
+table,
+td {
+  border: 1px solid gray;
+}
+
+thead td {
+  font-weight: bold;
+}
+
+td {
+  padding: 4px 8px;
+}
