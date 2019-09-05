@@ -29,7 +29,7 @@ textInputElement.oninput = function(event) {
   buildTableBodyByCountsCoincidences(countsCoincidences);
 };
 
-function addRowToElementByArray(element, array) {
+function addRowToTableElementByArray(element, array) {
   const row = element.insertRow();
 
   for (let item of array) {
@@ -47,13 +47,13 @@ function buildTableBodyByCountsCoincidences(countsCoincidences) {
 
   if (oldTbody) oldTbody.remove();
 
-  addRowToElementByArray(tbody, countsCoincidences);
+  addRowToTableElementByArray(tbody, countsCoincidences);
 }
 
 function buildTableHeadBySearchKeys() {
   const thead = document.createElement("thead");
 
-  addRowToElementByArray(thead, searchKeys);
+  addRowToTableElementByArray(thead, searchKeys);
 }
 
 function getCountsCoincidencesOfText(text) {
